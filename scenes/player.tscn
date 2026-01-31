@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm6qoe57l87ub"]
+[gd_scene load_steps=6 format=3 uid="uid://jpq5aydc2yf5"]
 
 [ext_resource type="Script" uid="uid://coxeexgx1hiyc" path="res://scripts/character_controller.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://ca0dpf1axlo0t" path="res://Art/ClownPlayer.glb" id="2_g2els"]
@@ -18,6 +18,9 @@ script = ExtResource("1_3vyb7")
 
 [node name="ClownPlayer" parent="Node3D" instance=ExtResource("2_g2els")]
 transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, -1, 0)
+
+[node name="mask" type="Sprite3D" parent="Node3D/ClownPlayer"]
+transform = Transform3D(-0.4, 0, 6.039832e-08, 0, 0.4, 0, -6.039832e-08, 0, -0.4, -1.05133964e-07, 5.457909, 1.2025924)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false

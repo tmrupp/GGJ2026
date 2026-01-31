@@ -24,8 +24,6 @@ func set_movement_target(target_position: Vector3):
 
 	var start_position: Vector3 = conv(position)
 	target_position = conv(target_position)
-	
-	print("default_3d_map_rid=", default_3d_map_rid)
 
 	current_path = NavigationServer3D.map_get_path(
 		default_3d_map_rid,
@@ -54,8 +52,8 @@ func _ready() -> void:
 	
 	get_random_walk()
 	
-	print("Local Min Position: ", world_min)
-	print("Local Max Position: ", world_max)
+	#print("Local Min Position: ", world_min)
+	#print("Local Max Position: ", world_max)
 	
 func _random_world_loc ():
 	var x = randf_range(world_min.x, world_max.x)
@@ -90,12 +88,10 @@ func _physics_process(delta):
 	
 	var org = conv(global_transform.origin)
 	if circuit.size() == 1:
-		print("static clown, random_look=", random_look)
 		look_at((random_look), Vector3.UP)
 		return
 	
 	if current_path.is_empty():
-		print("circuit=", circuit, " circuit_index=", circuit_index)
 		set_movement_target(circuit[circuit_index])
 		circuit_index = (circuit_index + 1) % circuit.size()
 		return
