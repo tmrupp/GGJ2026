@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://h67a6yw06srf"]
+[gd_scene load_steps=13 format=3 uid="uid://h67a6yw06srf"]
 
+[ext_resource type="PackedScene" uid="uid://dth3mqegiaqm6" path="res://resources/mask.tscn" id="1_8alpp"]
 [ext_resource type="Script" uid="uid://coxeexgx1hiyc" path="res://scripts/character_controller.gd" id="1_eah0l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pk6t3"]
@@ -32,14 +33,6 @@ material = SubResource("StandardMaterial3D_8alpp")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jvnnc"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_eah0l"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7m3ry"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_jvnnc"]
-material = SubResource("StandardMaterial3D_7m3ry")
-
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -55,9 +48,10 @@ transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, 3,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
 shape = SubResource("BoxShape3D_eah0l")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall/CollisionShape3D"]
+transform = Transform3D(0.99999994, 0, -4.440892e-16, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_eah0l")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -79,11 +73,9 @@ spring_length = 3.0
 transform = Transform3D(1, 0, 0, 0, 0.8660255, 0.50000006, 0, -0.50000006, 0.8660255, 0, 0, 0)
 size = 4.0
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+[node name="Mask2" parent="." instance=ExtResource("1_8alpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.016242, 1.1685581, -6.4055753)
+color = Color(0.98333335, 1, 0, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_eah0l")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-mesh = SubResource("SphereMesh_jvnnc")
+[node name="Mask" parent="." instance=ExtResource("1_8alpp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2732544, 1, -4.99358)
