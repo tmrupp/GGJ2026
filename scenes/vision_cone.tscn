@@ -28,3 +28,13 @@ material_index = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("ConvexPolygonShape3D_6m2bk")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+visible = false
+spot_attenuation = 0.0
+spot_angle = 21.8
+spot_angle_attenuation = 8.05364e-05
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+enabled = false
+target_position = Vector3(0, 0, -6)
