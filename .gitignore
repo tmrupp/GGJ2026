@@ -6,3 +6,5 @@ crash_handler.log
 *.log
 .vscode/
 .idea/
+.godot/shader_cache/
+.godot/editor/
