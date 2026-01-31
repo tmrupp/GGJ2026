@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm6qoe57l87ub"]
+[gd_scene load_steps=6 format=3 uid="uid://dm6qoe57l87ub"]
 
 [ext_resource type="Script" uid="uid://coxeexgx1hiyc" path="res://scripts/character_controller.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://ca0dpf1axlo0t" path="res://Art/ClownPlayer.glb" id="2_g2els"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8alpp"]
 albedo_color = Color(0.2491, 0.36145994, 0.53, 1)
@@ -13,7 +14,13 @@ material = SubResource("StandardMaterial3D_8alpp")
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_3vyb7")
 
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="ClownPlayer" parent="Node3D" instance=ExtResource("2_g2els")]
+transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, 0, -1, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_klq6b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
