@@ -20,5 +20,5 @@ func _input(_event: InputEvent) -> void:
 	
 func _physics_process(_delta: float) -> void:
 	velocity = Vector3(direction.x, 0.0, direction.y).rotated(Vector3.UP, rotation.y) * speed
-	rotate(Vector3(0, 1, 0), turn*turn_speed)
+	rotate(Vector3(0, 1, 0), turn * turn_speed)
 	move_and_slide()
