@@ -8,3 +8,4 @@ crash_handler.log
 .idea/
 .godot/shader_cache/
 .godot/editor/
+.godot/uid_cache.bin
