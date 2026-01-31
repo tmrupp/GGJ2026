@@ -6,6 +6,12 @@ var turn_speed = .05
 var direction: Vector2
 var turn: float
 @onready var cam = $CameraPivot/SpringArm3D/Camera3D
+@onready var mesh = $MeshInstance3D
+var mask: Color = Color.WHITE
+
+func mask_up (color):
+	mask = color
+	mesh.mesh.material.albedo_color = color
 
 func _input(_event: InputEvent) -> void:
 	direction = Input.get_vector("Left", "Right", "Forward", "Back")

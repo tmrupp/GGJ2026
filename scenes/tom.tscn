@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://h67a6yw06srf"]
+[gd_scene load_steps=16 format=3 uid="uid://h67a6yw06srf"]
 
 [ext_resource type="Script" uid="uid://coxeexgx1hiyc" path="res://scripts/character_controller.gd" id="1_eah0l"]
+[ext_resource type="Script" uid="uid://bavs21bp8whhm" path="res://scripts/mask.gd" id="2_8alpp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pk6t3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -55,9 +56,10 @@ transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, 3,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
 shape = SubResource("BoxShape3D_eah0l")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall/CollisionShape3D"]
+transform = Transform3D(0.99999994, 0, -4.440892e-16, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_eah0l")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -79,11 +81,12 @@ spring_length = 3.0
 transform = Transform3D(1, 0, 0, 0, 0.8660255, 0.50000006, 0, -0.50000006, 0.8660255, 0, 0, 0)
 size = 4.0
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="Mask" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 6)
+script = ExtResource("2_8alpp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mask"]
 shape = SubResource("SphereShape3D_eah0l")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mask"]
 mesh = SubResource("SphereMesh_jvnnc")
