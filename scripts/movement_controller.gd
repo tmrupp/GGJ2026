@@ -71,7 +71,7 @@ func get_random_walk():
 	var v : Vector3
 	var vn : Vector3
 	random_look = _random_world_loc()
-	for i in range(randi_range(1, 1)):
+	for i in range(randi_range(1, 4)):
 		if circuit.is_empty():
 			#var x = randf_range(world_min.x, world_max.x)
 			#var z = randf_range(world_min.z, world_max.z)
