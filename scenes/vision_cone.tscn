@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://msjnlecguhq7"]
+
+[ext_resource type="Script" uid="uid://bl54ul22ldp37" path="res://scripts/vision_cone.gd" id="1_wwfdo"]
+[ext_resource type="Material" uid="uid://bpitvwy06woqd" path="res://resources/translucent_vision_cone_1.tres" id="2_l5hif"]
+[ext_resource type="Script" uid="uid://bs0mrf3omhjd6" path="res://scripts/cone_color.gd" id="3_l5hif"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_e2sun"]
+resource_local_to_scene = true
+material = ExtResource("2_l5hif")
+top_radius = 0.0
+bottom_radius = 2.0
+height = 5.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6m2bk"]
+points = PackedVector3Array(0, 0, 0, 2, -2, -5, -2, -2, -5, -2, 2, -5, 2, 2, -5)
+
+[node name="VisionCone" type="Node3D"]
+script = ExtResource("1_wwfdo")
+
+[node name="ConeMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2.5)
+mesh = SubResource("CylinderMesh_e2sun")
+skeleton = NodePath("../..")
+script = ExtResource("3_l5hif")
+material_index = 0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("ConvexPolygonShape3D_6m2bk")

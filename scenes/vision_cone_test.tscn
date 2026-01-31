@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqs68s12ajb2w"]
+
+[ext_resource type="PackedScene" uid="uid://msjnlecguhq7" path="res://scenes/vision_cone.tscn" id="1_onm2k"]
+[ext_resource type="Material" uid="uid://xa2qo8owrp7h" path="res://resources/translucent_vision_cone_2.tres" id="2_6m2bk"]
+[ext_resource type="Material" uid="uid://bpitvwy06woqd" path="res://resources/translucent_vision_cone_1.tres" id="2_d87tp"]
+[ext_resource type="Material" uid="uid://vw7fndgutay5" path="res://resources/translucent_vision_cone_3.tres" id="4_e2sun"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d87tp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_evw8w"]
+resource_local_to_scene = true
+material = ExtResource("2_d87tp")
+top_radius = 0.0
+bottom_radius = 2.0
+height = 5.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hnpob"]
+resource_local_to_scene = true
+material = ExtResource("2_6m2bk")
+top_radius = 0.0
+bottom_radius = 2.0
+height = 5.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_dlqwi"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lumwd"]
+resource_local_to_scene = true
+material = ExtResource("4_e2sun")
+top_radius = 0.0
+bottom_radius = 2.0
+height = 5.0
+
+[node name="VisionConeTest" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_d87tp")
+
+[node name="VisionCone" parent="MeshInstance3D" instance=ExtResource("1_onm2k")]
+
+[node name="ConeMesh" parent="MeshInstance3D/VisionCone" index="0"]
+mesh = SubResource("CylinderMesh_evw8w")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+mesh = SubResource("SphereMesh_d87tp")
+
+[node name="VisionCone2" parent="MeshInstance3D2" instance=ExtResource("1_onm2k")]
+
+[node name="ConeMesh" parent="MeshInstance3D2/VisionCone2" index="0"]
+mesh = SubResource("CylinderMesh_hnpob")
+skeleton = NodePath("../../..")
+material_index = 1
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+mesh = SubResource("SphereMesh_dlqwi")
+
+[node name="VisionCone" parent="MeshInstance3D3" instance=ExtResource("1_onm2k")]
+
+[node name="ConeMesh" parent="MeshInstance3D3/VisionCone" index="0"]
+mesh = SubResource("CylinderMesh_lumwd")
+material_index = 2
+
+[editable path="MeshInstance3D/VisionCone"]
+[editable path="MeshInstance3D2/VisionCone2"]
+[editable path="MeshInstance3D3/VisionCone"]
