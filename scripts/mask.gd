@@ -9,4 +9,6 @@ func _on_entered(body):
 
 func _ready() -> void:
 	connect("body_entered", _on_entered)
+	print("color:", color)
+	mesh.mesh.material = StandardMaterial3D.new()
 	mesh.mesh.material.albedo_color = color
