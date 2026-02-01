@@ -12,7 +12,11 @@ func _process(_delta: float) -> void:
 		set_model()
 
 func set_model():
+	if models == null:
+		models = [$Clown1, $Clown2]
 	if clown_model_index >= 0 and clown_model_index < len(models):
 		for model in models:
 			model.hide()
+			model.get_node("VisionCone/Area3D").monitoring = false
 		models[clown_model_index].show()
+		models[clown_model_index].get_node("VisionCone/Area3D").monitoring = true

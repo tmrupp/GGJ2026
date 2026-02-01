@@ -23,9 +23,11 @@ var color_to_index = {
 	Color.YELLOW: 2
 }
 
-func setup (_color):
+func setup (_color, clown_model_index):
 	$Node3D/Clown1/VisionCone/ConeMesh.material_index = color_to_index[_color]
 	$Node3D/Clown2/VisionCone/ConeMesh.material_index = color_to_index[_color]
+	$Node3D.clown_model_index = clown_model_index
+	$Node3D.set_model()
 	#print("setup color=", _color)
 	#$Node3D/Clown2/VisionCone/ConeMesh.set_mat()
 	color = _color

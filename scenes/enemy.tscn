@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://qi4rqwcfu6gt" path="res://scripts/movement_controller.gd" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://ortke7n4q4s6" path="res://scripts/set_clown_model.gd" id="2_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://begv0wikfruaa" path="res://Art/ClownEnemyTall.glb" id="3_c4w8v"]
-[ext_resource type="PackedScene" path="res://scenes/vision_cone.tscn" id="4_c4w8v"]
+[ext_resource type="PackedScene" uid="uid://msjnlecguhq7" path="res://scenes/vision_cone.tscn" id="4_c4w8v"]
 [ext_resource type="PackedScene" uid="uid://cdfigalyk4e06" path="res://Art/CLOWNSHORTMaterial.glb" id="4_xwavj"]
 [ext_resource type="Material" uid="uid://bpitvwy06woqd" path="res://resources/translucent_vision_cone_1.tres" id="5_xwavj"]
 

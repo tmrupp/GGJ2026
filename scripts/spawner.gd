@@ -11,7 +11,7 @@ func spawn():
 	var enemy = enemy_scene.instantiate()
 	enemy.transform = tents[t].transform
 	enemy.position += Vector3.UP
-	enemy.setup(colors.pick_random())
+	enemy.setup(colors.pick_random(), randi_range(0, 1))
 	main.add_child(enemy)
 	
 func _input(_event: InputEvent) -> void:
