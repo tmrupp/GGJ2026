@@ -9,9 +9,9 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		$Sprite3D.texture = texture
 
-func setup(color, texture):
+func setup(_color, texture):
 	$Sprite3D.texture = texture
-	color = color
+	color = _color
 
 func _on_entered(body):
 	if body.name == "Player":
