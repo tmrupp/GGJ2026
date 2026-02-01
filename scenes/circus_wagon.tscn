@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chjxne6wiu6yq"]
+
+[ext_resource type="PackedScene" uid="uid://clusykb5dpot6" path="res://Art/CircusWagon.glb" id="1_7xter"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7xter"]
+size = Vector3(1.2756348, 2.4696045, 2.4702148)
+
+[node name="CircusWagon" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CircusWagon" parent="Node3D" instance=ExtResource("1_7xter")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007446289, 1.2317879, 0.12231445)
+shape = SubResource("BoxShape3D_7xter")
