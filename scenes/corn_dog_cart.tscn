@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj5dgkjxnas4s"]
+
+[ext_resource type="PackedScene" uid="uid://bff8n4ixwkeey" path="res://Art/CORNDOGCART.glb" id="1_rfrky"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rfrky"]
+size = Vector3(0.9267578, 1.8818359, 1.9676514)
+
+[node name="CornDogCart" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="CORNDOGCART" parent="Node3D" instance=ExtResource("1_rfrky")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.105, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0053710938, 0.9494629, 0.055114746)
+shape = SubResource("BoxShape3D_rfrky")
