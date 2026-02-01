@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ca0dpf1axlo0t"
-path="res://.godot/imported/ClownPlayer.glb-a6f56ff66271d8c1a27a2eb69a8ca301.scn"
+valid=false
 
 [deps]
 
 source_file="res://Art/ClownPlayer.glb"
-dest_files=["res://.godot/imported/ClownPlayer.glb-a6f56ff66271d8c1a27a2eb69a8ca301.scn"]
 
 [params]
 
