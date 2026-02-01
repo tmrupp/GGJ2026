@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coxeexgx1hiyc" path="res://scripts/character_controller.gd" id="1_3vyb7"]
 [ext_resource type="Material" uid="uid://bd601buy20abf" path="res://resources/player_color_swap_shader.tres" id="3_dqkch"]
-[ext_resource type="PackedScene" uid="uid://djwnh06vheg0a" path="res://scenes/clown_player.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" path="res://scenes/clown_player.tscn" id="3_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://c850s4q73an8l" path="res://Art/2d art/puffball.png" id="4_dqkch"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_qhqgy"]
@@ -218,5 +218,10 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_dqkch")
 draw_pass_1 = SubResource("PlaneMesh_tuyoq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0748949, 0)
+light_energy = 0.25
+omni_range = 3.0
 
 [editable path="Node3D/ClownPlayer"]

@@ -1,27 +1,27 @@
 [gd_scene load_steps=31 format=3 uid="uid://0dq687mmhxrd"]
 
 [ext_resource type="Script" uid="uid://dueqnb44i8dd" path="res://scripts/level.gd" id="1_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://ds0i01w1xfibp" path="res://scenes/WorldTent.tscn" id="2_82cfe"]
+[ext_resource type="PackedScene" path="res://scenes/WorldTent.tscn" id="2_82cfe"]
 [ext_resource type="Script" uid="uid://dtabuf1vhycrq" path="res://scripts/floor.gd" id="2_klq6b"]
 [ext_resource type="PackedScene" uid="uid://jpq5aydc2yf5" path="res://scenes/player.tscn" id="2_mx8sn"]
 [ext_resource type="Script" uid="uid://c0x7ftwkbu4rh" path="res://scripts/spawner.gd" id="3_b121j"]
-[ext_resource type="PackedScene" path="res://scenes/small_tent.tscn" id="3_klq6b"]
+[ext_resource type="PackedScene" uid="uid://ci202rx6rxq5o" path="res://scenes/small_tent.tscn" id="3_klq6b"]
 [ext_resource type="Script" uid="uid://da831kxujq0ut" path="res://scripts/masks.gd" id="5_2r41h"]
-[ext_resource type="PackedScene" path="res://scenes/barrel.tscn" id="6_t1rx8"]
-[ext_resource type="PackedScene" path="res://scenes/ball.tscn" id="8_olg7q"]
+[ext_resource type="PackedScene" uid="uid://vk2hhlsxht8m" path="res://scenes/barrel.tscn" id="6_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://20i4ulqglwb3" path="res://scenes/ball.tscn" id="8_olg7q"]
 [ext_resource type="PackedScene" uid="uid://dsgq4gef735yx" path="res://scenes/square_tent.tscn" id="9_8iemx"]
 [ext_resource type="PackedScene" uid="uid://dhfthgunr7kl4" path="res://Art/Baloons.glb" id="9_fpun6"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="10_64w2a"]
-[ext_resource type="PackedScene" path="res://scenes/flags.tscn" id="11_fpun6"]
-[ext_resource type="PackedScene" path="res://scenes/popcorn_cart.tscn" id="12_arp2o"]
-[ext_resource type="PackedScene" path="res://scenes/circus_wagon.tscn" id="13_ux5qa"]
-[ext_resource type="PackedScene" path="res://scenes/lights.tscn" id="14_82cfe"]
-[ext_resource type="PackedScene" path="res://scenes/stage.tscn" id="15_ux5qa"]
+[ext_resource type="PackedScene" uid="uid://cnypt434ruw3s" path="res://scenes/platform.tscn" id="10_64w2a"]
+[ext_resource type="PackedScene" uid="uid://dktq3jph630hh" path="res://scenes/flags.tscn" id="11_fpun6"]
+[ext_resource type="PackedScene" uid="uid://dwcbovx0cgwsx" path="res://scenes/popcorn_cart.tscn" id="12_arp2o"]
+[ext_resource type="PackedScene" uid="uid://chjxne6wiu6yq" path="res://scenes/circus_wagon.tscn" id="13_ux5qa"]
+[ext_resource type="PackedScene" uid="uid://dpm7am22lnvmh" path="res://scenes/lights.tscn" id="14_82cfe"]
+[ext_resource type="PackedScene" uid="uid://pl1flphw2jgc" path="res://scenes/stage.tscn" id="15_ux5qa"]
 [ext_resource type="Texture2D" uid="uid://7ack261bfy7b" path="res://Art/2d art/splash.png" id="18_8gofh"]
 [ext_resource type="Script" uid="uid://b84jgivkjpeaf" path="res://scripts/ui.gd" id="18_gunhw"]
 [ext_resource type="AudioStream" uid="uid://bpqb3wrnxiy30" path="res://Music/Title.wav" id="20_3ies3"]
 [ext_resource type="AudioStream" uid="uid://ccf5cvrh8r5xo" path="res://Music/Circus Sneaking pitched.wav" id="20_8gofh"]
-[ext_resource type="Script" uid="uid://rhk3ucm83iuh" path="res://scripts/audio_stream_player_3d.gd" id="21_h6wmr"]
+[ext_resource type="Script" path="res://scripts/audio_stream_player_3d.gd" id="21_h6wmr"]
 [ext_resource type="AudioStream" uid="uid://daisb220d3hlv" path="res://Music/Postgame.wav" id="22_xy2fk"]
 [ext_resource type="AudioStream" uid="uid://dbq5esfkb4hrn" path="res://Music/mask grab.wav" id="23_cmcjb"]
 [ext_resource type="AudioStream" uid="uid://c2aj1hvoikm5v" path="res://Music/caught.wav" id="24_556r4"]
@@ -38,6 +38,7 @@ agent_radius = 0.25
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w7c3h"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+sky_energy_multiplier = 0.2
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
 [sub_resource type="Sky" id="Sky_eah0l"]
@@ -558,9 +559,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Masks" type="Node" parent="."]
 script = ExtResource("5_2r41h")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4418907, 0)
-omni_range = 45.729584
+[node name="Lighting" type="Node" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.243111, 0)
+visible = false
+omni_range = 60.0
+omni_attenuation = 0.5
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.773902, 13.1660385, 34.405365)
+omni_range = 20.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.351421, 13.1660385, 24.347836)
+omni_range = 20.0
+omni_attenuation = 0.8
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.655777, 13.166037, -18.205938)
+omni_range = 20.0
+omni_attenuation = 0.8
 
 [node name="UI" type="CanvasLayer" parent="."]
 process_mode = 3
