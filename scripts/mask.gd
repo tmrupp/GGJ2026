@@ -1,7 +1,7 @@
 extends Area3D
 
 @export var color = Color.RED
-@onready var mesh: MeshInstance3D = $MeshInstance3D
+#@onready var mesh: MeshInstance3D = $MeshInstance3D
 
 func _on_entered(body):
 	if body.name == "Player":

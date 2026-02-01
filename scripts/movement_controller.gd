@@ -74,7 +74,7 @@ func get_random_walk():
 			#var x = randf_range(world_min.x, world_max.x)
 			#var z = randf_range(world_min.z, world_max.z)
 			#vn = Vector3(x, 0, z)
-			vn = Vector3(position.x, 0, position.z)
+			vn = _random_world_loc()
 			
 		else:
 			var t = 2*PI*randf()
@@ -87,13 +87,14 @@ func get_random_walk():
 func _physics_process(delta):
 	
 	var org = conv(global_transform.origin)
-	if circuit.size() == 1:
-		look_at((random_look), Vector3.UP)
-		return
 	
 	if current_path.is_empty():
 		set_movement_target(circuit[circuit_index])
 		circuit_index = (circuit_index + 1) % circuit.size()
+		return
+		
+	if circuit.size() == 1 and org.distance_to(current_path_point) <= path_point_margin:
+		look_at((random_look), Vector3.UP)
 		return
 		
 
