@@ -1,23 +1,23 @@
 [gd_scene load_steps=31 format=3 uid="uid://0dq687mmhxrd"]
 
 [ext_resource type="Script" uid="uid://dueqnb44i8dd" path="res://scripts/level.gd" id="1_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://ds0i01w1xfibp" path="res://scenes/WorldTent.tscn" id="2_82cfe"]
+[ext_resource type="PackedScene" path="res://scenes/WorldTent.tscn" id="2_82cfe"]
 [ext_resource type="Script" uid="uid://dtabuf1vhycrq" path="res://scripts/floor.gd" id="2_klq6b"]
 [ext_resource type="PackedScene" uid="uid://jpq5aydc2yf5" path="res://scenes/player.tscn" id="2_mx8sn"]
 [ext_resource type="Script" uid="uid://c0x7ftwkbu4rh" path="res://scripts/spawner.gd" id="3_b121j"]
-[ext_resource type="PackedScene" path="res://scenes/small_tent.tscn" id="3_klq6b"]
+[ext_resource type="PackedScene" uid="uid://ci202rx6rxq5o" path="res://scenes/small_tent.tscn" id="3_klq6b"]
 [ext_resource type="Script" uid="uid://da831kxujq0ut" path="res://scripts/masks.gd" id="5_2r41h"]
-[ext_resource type="PackedScene" path="res://scenes/barrel.tscn" id="6_t1rx8"]
-[ext_resource type="PackedScene" path="res://scenes/ball.tscn" id="8_olg7q"]
+[ext_resource type="PackedScene" uid="uid://vk2hhlsxht8m" path="res://scenes/barrel.tscn" id="6_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://20i4ulqglwb3" path="res://scenes/ball.tscn" id="8_olg7q"]
 [ext_resource type="PackedScene" uid="uid://dsgq4gef735yx" path="res://scenes/square_tent.tscn" id="9_8iemx"]
 [ext_resource type="PackedScene" uid="uid://dhfthgunr7kl4" path="res://Art/Baloons.glb" id="9_fpun6"]
-[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="10_64w2a"]
-[ext_resource type="PackedScene" path="res://scenes/flags.tscn" id="11_fpun6"]
-[ext_resource type="PackedScene" path="res://scenes/popcorn_cart.tscn" id="12_arp2o"]
-[ext_resource type="PackedScene" path="res://scenes/circus_wagon.tscn" id="13_ux5qa"]
-[ext_resource type="PackedScene" path="res://scenes/lights.tscn" id="14_82cfe"]
-[ext_resource type="PackedScene" path="res://scenes/stage.tscn" id="15_ux5qa"]
-[ext_resource type="PackedScene" uid="uid://clwwoblh7fcd3" path="res://scenes/wanted.tscn" id="16_xy2fk"]
+[ext_resource type="PackedScene" uid="uid://cnypt434ruw3s" path="res://scenes/platform.tscn" id="10_64w2a"]
+[ext_resource type="PackedScene" uid="uid://dktq3jph630hh" path="res://scenes/flags.tscn" id="11_fpun6"]
+[ext_resource type="PackedScene" uid="uid://dwcbovx0cgwsx" path="res://scenes/popcorn_cart.tscn" id="12_arp2o"]
+[ext_resource type="PackedScene" uid="uid://chjxne6wiu6yq" path="res://scenes/circus_wagon.tscn" id="13_ux5qa"]
+[ext_resource type="PackedScene" uid="uid://dpm7am22lnvmh" path="res://scenes/lights.tscn" id="14_82cfe"]
+[ext_resource type="PackedScene" uid="uid://pl1flphw2jgc" path="res://scenes/stage.tscn" id="15_ux5qa"]
+[ext_resource type="PackedScene" path="res://scenes/wanted.tscn" id="16_xy2fk"]
 [ext_resource type="Texture2D" uid="uid://7ack261bfy7b" path="res://Art/2d art/splash.png" id="18_8gofh"]
 [ext_resource type="Script" uid="uid://b84jgivkjpeaf" path="res://scripts/ui.gd" id="18_gunhw"]
 [ext_resource type="AudioStream" uid="uid://bpqb3wrnxiy30" path="res://Music/Title.wav" id="20_3ies3"]
@@ -567,7 +567,6 @@ script = ExtResource("5_2r41h")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.243111, 0)
-visible = false
 omni_range = 60.0
 omni_attenuation = 0.5
 
