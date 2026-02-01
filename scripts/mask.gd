@@ -1,7 +1,12 @@
+@tool
 extends Area3D
 
 @export var color = Color.RED
-#@onready var mesh: MeshInstance3D = $MeshInstance3D
+@export var texture: Texture
+
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		$Sprite3D.texture = texture
 
 func _on_entered(body):
 	if body.name == "Player":
