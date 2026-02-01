@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://pl1flphw2jgc"]
+
+[ext_resource type="PackedScene" uid="uid://c5mfle5063how" path="res://Art/Stage.glb" id="1_8rem4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8rem4"]
+size = Vector3(17.290527, 1, 7.0906525)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gi7kc"]
+size = Vector3(4.1276855, 9.213501, 1.9248657)
+
+[node name="Stage" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Stage2" parent="Node3D" instance=ExtResource("1_8rem4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008544922, 0, 1.2938461)
+shape = SubResource("BoxShape3D_8rem4")
+debug_color = Color(0, 0.5950001, 0.7, 0.73333335)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.674009, 3.5974731, -1.6915288)
+shape = SubResource("BoxShape3D_gi7kc")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.753408, 3.5974731, -1.6915288)
+shape = SubResource("BoxShape3D_gi7kc")
