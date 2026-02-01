@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://20i4ulqglwb3"]
+
+[ext_resource type="PackedScene" uid="uid://bmi2ojkrcynht" path="res://Art/Ball.glb" id="1_7s4qf"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cxlvu"]
+radius = 0.6
+
+[node name="Ball" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Ball" parent="Node3D" instance=ExtResource("1_7s4qf")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6001988, 0)
+shape = SubResource("SphereShape3D_cxlvu")
