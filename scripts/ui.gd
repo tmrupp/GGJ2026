@@ -1,5 +1,7 @@
 extends TextureRect
 
+@onready var player = $"../../Player"
+
 func toggle ():
 	self.visible = not self.visible
 	if self.visible:
@@ -17,6 +19,7 @@ func restart ():
 func game_end():
 	$"../GameEndPanel".visible = true
 	$"../..".process_mode = Node.PROCESS_MODE_DISABLED
+	$"../GameEndPanel/VBoxContainer/Label3".text = str(player.nmasks)
 
 func _ready() -> void:
 	$VBoxContainer/Start.pressed.connect(toggle)

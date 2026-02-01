@@ -22,7 +22,7 @@ func _ready() -> void:
 	timer = Timer.new()
 	timer.timeout.connect(spawn_mask.bind(mask_pngs.keys().pick_random()))
 	add_child(timer)
-	timer.start(10)
+	timer.start(60)
 	for c in mask_pngs.keys():
 		spawn_mask(c)
 		
@@ -34,5 +34,6 @@ func remove_mask (mask):
 	var color = mask.color
 	mask.queue_free()
 	spawn_mask(color)
+	print("removed")
 	
 	
