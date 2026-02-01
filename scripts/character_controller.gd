@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 var default_speed = 5.0
+var white_speed_factor = 1.2
 var speed = 5.0
 var turn_speed = .05
 
@@ -48,8 +49,6 @@ func dash(first_time = true):
 	
 	speed = 1000
 	cooldown(dash_cooldown)
-		
-	
 
 var shroud_time = 2.0
 var shroud_cooldown = 6.0
@@ -68,7 +67,7 @@ func shroud(first_time = true):
 		t += cooldown_step
 		
 	shrouded = false
-	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color)
+	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color_dictionary[color])
 	
 
 func default(first_time = true):
@@ -101,13 +100,16 @@ func _input(_event: InputEvent) -> void:
 	
 func _physics_process(_delta: float) -> void:
 	if shrouded:
+		velocity = Vector3.ZERO
 		return
 	velocity = Vector3(direction.x, 0.0, direction.y).rotated(Vector3.UP, rotation.y) * speed
-	speed = default_speed
+	
+	speed = default_speed * (white_speed_factor if color == Color.WHITE else 1)
 	rotate(Vector3(0, 1, 0), turn * turn_speed)
 	move_and_slide()
 
 func _process(_delta: float) -> void:
+	animation_player.speed_scale = (white_speed_factor if color == Color.WHITE else 1)
 	if animation_player.current_animation != "walk" and velocity.length_squared() > 1e-3:
 		animation_player.play("walk")
 	elif animation_player.current_animation != "idle" and velocity.length_squared() <= 1e-3:

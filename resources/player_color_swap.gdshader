@@ -34,10 +34,10 @@ void fragment() {
 	vec3 base_value_hsv = rgb_to_hsv(base_value);
 	vec3 color_focus_hsv = rgb_to_hsv(color_focus);
 	
-	if (color_focus == vec3(0.0)) {
+	if (color_focus == vec3(1.0)) {
 		ALBEDO = base_value;
 	}
-	else if (color_focus == vec3(1.0)) {
+	else if (color_focus == vec3(0.0)) {
 		ALBEDO = base_value;
 		ALPHA = 0.35;
 	}
