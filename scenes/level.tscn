@@ -131,7 +131,7 @@ environment = SubResource("Environment_w8frs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Clown" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.7782, 2, -18.190445)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.178232, 2, -11.795157)
 mesh = SubResource("SphereMesh_ppgk2")
 script = ExtResource("5_ppgk2")
 
