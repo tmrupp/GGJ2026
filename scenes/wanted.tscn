@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://clwwoblh7fcd3"]
+
+[ext_resource type="PackedScene" uid="uid://crkjipoev66c" path="res://Art/WantedBulletin.glb" id="1_h8kuh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oafhx"]
+size = Vector3(0.24519348, 4.7826347, 3.9332275)
+
+[node name="Wanted" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="WantedBulletin" parent="Node3D" instance=ExtResource("1_h8kuh")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.007987976, 1.3309059, -0.062194824)
+shape = SubResource("BoxShape3D_oafhx")
