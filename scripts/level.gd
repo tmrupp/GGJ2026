@@ -18,5 +18,6 @@ func _on_player_caught():
 		player.puff.emitting = true
 		
 	else:
+		$Audio/Caught.play()
 		print("we caught the player")
 		$UI/Menu.game_end()

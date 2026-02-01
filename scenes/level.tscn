@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://0dq687mmhxrd"]
+[gd_scene load_steps=30 format=3 uid="uid://0dq687mmhxrd"]
 
 [ext_resource type="Script" uid="uid://dueqnb44i8dd" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="PackedScene" path="res://scenes/WorldTent.tscn" id="2_82cfe"]
@@ -730,24 +730,22 @@ size_flags_horizontal = 4
 text = "RESTART"
 
 [node name="Audio" type="Node" parent="."]
+process_mode = 3
 
-[node name="Main" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="Main" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("20_8gofh")
-script = ExtResource("21_h6wmr")
 
-[node name="Menu" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="Menu" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("20_3ies3")
-script = ExtResource("21_h6wmr")
 
-[node name="End" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="End" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("22_xy2fk")
-script = ExtResource("21_h6wmr")
 
-[node name="Mask" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="Mask" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("23_cmcjb")
 
-[node name="Caught" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="Caught" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("24_556r4")
 
-[node name="Select" type="AudioStreamPlayer3D" parent="Audio"]
+[node name="Select" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("25_7agi7")
