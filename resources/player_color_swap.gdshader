@@ -1,4 +1,5 @@
 shader_type spatial;
+render_mode depth_prepass_alpha;
 
 uniform sampler2D base_texture;
 uniform vec3 color_focus : source_color;
@@ -35,6 +36,10 @@ void fragment() {
 	
 	if (color_focus == vec3(0.0)) {
 		ALBEDO = base_value;
+	}
+	else if (color_focus == vec3(1.0)) {
+		ALBEDO = base_value;
+		ALPHA = 0.35;
 	}
 	else {
 		vec3 greyscale_rgb = vec3((base_value.r + base_value.g + base_value.b) / 3.0);

@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bd601buy20abf"]
 
-[ext_resource type="Shader" path="res://resources/player_color_swap.gdshader" id="1_fjlj1"]
+[ext_resource type="Shader" uid="uid://ueg8x3nkcily" path="res://resources/player_color_swap.gdshader" id="1_fjlj1"]
 [ext_resource type="Texture2D" uid="uid://cmqu7k5k7y3mx" path="res://Art/ClownPlayer_ClownBody1.png" id="2_b835o"]
 
 [resource]
