@@ -14,7 +14,8 @@ func spawn_mask (color: Color):
 	mask.setup(color, load(mask_pngs[color]))
 	mask.position = v + Vector3.UP
 	add_child(mask)
-	timer.start(10)
+	timer.start(100)
+	print("current masks=", get_child_count())
 	
 	
 func _ready() -> void:
