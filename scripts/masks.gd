@@ -3,7 +3,7 @@ extends Node
 @onready var mask_scene = preload("res://scenes/mask.tscn")
 @onready var mask_pngs = {Color.BLUE:"res://Art/2d art/bluemask.png", Color.RED:"res://Art/2d art/redmask.png", Color.YELLOW:"res://Art/2d art/yellowmask.png"}
 
-@onready var floor = $"../NavigationRegion3D/Floor"
+@onready var floor = $"../NavigationRegion3D/BackgroundTent"
 
 
 func spawn_mask (color: Color):

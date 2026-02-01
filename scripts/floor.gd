@@ -1,14 +1,9 @@
-extends MeshInstance3D
+extends Node3D
 
 var world_min
 var world_max
 
-func _ready() -> void:
-	var aabb: AABB = global_transform * get_aabb()
-	world_min = aabb.position
-	world_max = aabb.position + aabb.size
+@onready var default_3d_map_rid: RID = get_world_3d().get_navigation_map()
 
 func _random_world_loc ():
-	var x = randf_range(world_min.x, world_max.x)
-	var z = randf_range(world_min.z, world_max.z)
-	return Vector3(x, 0, z)
+	return NavigationServer3D.map_get_random_point(default_3d_map_rid, 1, true)
