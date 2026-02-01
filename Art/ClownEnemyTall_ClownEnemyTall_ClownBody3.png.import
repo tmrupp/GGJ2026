@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciwe238b77ppa"
-path.s3tc="res://.godot/imported/redmask.png-b0cd72a954f8f73970ce6961b2adf827.s3tc.ctex"
+uid="uid://bou8iiw8idwwq"
+path.s3tc="res://.godot/imported/ClownEnemyTall_ClownEnemyTall_ClownBody3.png-53de2c57353c996b45072e144f1086a1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "e5ba5f9b2e6f04849d76ae451e92207d"
+}
 
 [deps]
 
-source_file="res://Art/2d art/redmask.png"
-dest_files=["res://.godot/imported/redmask.png-b0cd72a954f8f73970ce6961b2adf827.s3tc.ctex"]
+source_file="res://Art/ClownEnemyTall_ClownEnemyTall_ClownBody3.png"
+dest_files=["res://.godot/imported/ClownEnemyTall_ClownEnemyTall_ClownBody3.png-53de2c57353c996b45072e144f1086a1.s3tc.ctex"]
 
 [params]
 

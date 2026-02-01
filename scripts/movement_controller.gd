@@ -15,8 +15,6 @@ var current_path: PackedVector3Array
 var circuit: Array
 
 @onready var world_floor = $"../NavigationRegion3D/Floor"
-var world_min
-var world_max
 
 
 func set_movement_target(target_position: Vector3):
@@ -46,9 +44,6 @@ func move_and_keep_height (v):
 	position = Vector3(v.x, position.y, v.z)
 
 func _ready() -> void:
-	var aabb: AABB = world_floor.global_transform * world_floor.get_aabb()
-	world_min = aabb.position
-	world_max = aabb.position + aabb.size
 
 	set_physics_process(false)
 	await get_tree().physics_frame
@@ -56,13 +51,6 @@ func _ready() -> void:
 	
 	get_random_walk()
 	
-	#print("Local Min Position: ", world_min)
-	#print("Local Max Position: ", world_max)
-	
-func _random_world_loc ():
-	var x = randf_range(world_min.x, world_max.x)
-	var z = randf_range(world_min.z, world_max.z)
-	return Vector3(x, 0, z)
 	
 
 var max_range = 10.0
@@ -72,13 +60,10 @@ var random_look
 func get_random_walk():
 	var v : Vector3
 	var vn : Vector3
-	random_look = _random_world_loc()
+	random_look = world_floor._random_world_loc()
 	for i in range(randi_range(1, 1)):
 		if circuit.is_empty():
-			#var x = randf_range(world_min.x, world_max.x)
-			#var z = randf_range(world_min.z, world_max.z)
-			#vn = Vector3(x, 0, z)
-			vn = _random_world_loc()
+			vn = world_floor._random_world_loc()
 			
 		else:
 			var t = 2*PI*randf()
