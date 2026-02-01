@@ -29,7 +29,7 @@ func set_movement_target(target_position: Vector3):
 		default_3d_map_rid,
 		start_position,
 		target_position,
-		true
+		false
 	)
 
 	if not current_path.is_empty():
