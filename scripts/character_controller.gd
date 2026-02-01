@@ -61,13 +61,13 @@ func shroud(first_time = true):
 	
 	var t = 0
 	shrouded = true
-	shader.get_surface_override_material(0).set_shader_parameter("color_focus", Color.DIM_GRAY)
+	shader.get_surface_override_material(0).set_shader_parameter("color_focus", Color.BLACK)
 	while t < shroud_time:
 		await get_tree().create_timer(cooldown_step).timeout
 		t += cooldown_step
 		
 	shrouded = false
-	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color)
+	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color_dictionary[color])
 	
 
 func default(first_time = true):
