@@ -8,9 +8,16 @@ var turn: float
 @onready var cam = $CameraPivot/SpringArm3D/Camera3D
 @onready var mesh = $MeshInstance3D
 @onready var animation_player = $Node3D/ClownPlayer/AnimationPlayer
+@onready var shader = $Node3D/ClownPlayer/rig/Skeleton3D/Torus
 
 var mask: Color = Color.WHITE
 @onready var mask_sprite = $Node3D/ClownPlayer/mask
+
+const color_dictionary = {
+	Color.RED : Color.RED,
+	Color.BLUE : Color(0, 115, 255),
+	Color.YELLOW : Color.YELLOW
+}
 
 func _ready() -> void:
 	animation_player.set_blend_time("walk", "idle", 0.25)
@@ -19,6 +26,7 @@ func _ready() -> void:
 func mask_up (color, texture):
 	mask = color
 	mask_sprite.texture = texture
+	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color_dictionary[color])
 
 func _input(_event: InputEvent) -> void:
 	direction = Input.get_vector("Left", "Right", "Forward", "Back")

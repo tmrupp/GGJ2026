@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://jpq5aydc2yf5"]
+[gd_scene load_steps=7 format=3 uid="uid://jpq5aydc2yf5"]
 
 [ext_resource type="Script" uid="uid://coxeexgx1hiyc" path="res://scripts/character_controller.gd" id="1_3vyb7"]
+[ext_resource type="Material" uid="uid://bd601buy20abf" path="res://resources/player_color_swap_shader.tres" id="3_dqkch"]
 [ext_resource type="PackedScene" path="res://scenes/clown_player.tscn" id="3_qhqgy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8alpp"]
@@ -136,6 +137,9 @@ bones/275/position = Vector3(0.7694401, 1.280479, 1.0261577)
 bones/275/rotation = Quaternion(0, 0.7875847, 0, 0.6162064)
 bones/276/position = Vector3(-1.5034978, 3.0292325, 0.16728224)
 bones/277/position = Vector3(1.4935219, 3.1655252, 0.30431116)
+
+[node name="Torus" parent="Node3D/ClownPlayer/rig/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("3_dqkch")
 
 [node name="mask" type="Sprite3D" parent="Node3D/ClownPlayer"]
 transform = Transform3D(-0.4, 0, -9.539903e-09, 0, 0.4, 0, 9.539903e-09, 0, -0.4, 1.05133964e-07, 5.457909, 1.2025924)
