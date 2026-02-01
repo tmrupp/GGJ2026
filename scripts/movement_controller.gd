@@ -23,6 +23,8 @@ var color_to_index = {
 	Color.YELLOW: 2
 }
 
+@onready var clown_controller = $Node3D
+
 func setup (_color, clown_model_index):
 	$Node3D/Clown1/VisionCone/ConeMesh.material_index = color_to_index[_color]
 	$Node3D/Clown2/VisionCone/ConeMesh.material_index = color_to_index[_color]
@@ -87,6 +89,7 @@ var d = 0
 var done = false
 
 func _final_turn():
+	clown_controller.set_animation("idle")
 	var org = conv(global_transform.origin)
 	while global_transform.basis.z.dot((random_look - org).normalized()) > -.99:
 		await get_tree().create_timer(1.0/60.0).timeout
@@ -123,7 +126,11 @@ func _physics_process(delta):
 		var target_direction: Vector3 = (current_path_point - org).normalized()
 		var target_rotation: Basis = Basis.looking_at(target_direction, Vector3.UP)
 		basis = basis.slerp(target_rotation, turn_speed * delta)
+		#clown_controller.set_animation("idle")
+		clown_controller.set_animation_speed_scale(0.25)
 	else:
 		var new_velocity: Vector3 = org.direction_to(current_path_point) * movement_delta
 		move_and_keep_height(org.move_toward(org + new_velocity, movement_delta))
 		d += delta
+		clown_controller.set_animation("walk")
+		clown_controller.set_animation_speed_scale(1.0)
