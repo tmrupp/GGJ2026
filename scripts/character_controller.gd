@@ -92,6 +92,7 @@ func mask_up (_color, texture):
 	nmasks += 1
 	num_lab.text = str(nmasks)
 	color = _color
+	shielded = false
 	ability[color].call()
 	mask_sprite.texture = texture
 	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color_dictionary[color])
