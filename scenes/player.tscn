@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://jpq5aydc2yf5"]
+[gd_scene load_steps=8 format=3 uid="uid://jpq5aydc2yf5"]
 
 [ext_resource type="Script" uid="uid://coxeexgx1hiyc" path="res://scripts/character_controller.gd" id="1_3vyb7"]
 [ext_resource type="Material" uid="uid://bd601buy20abf" path="res://resources/player_color_swap_shader.tres" id="3_dqkch"]
-[ext_resource type="PackedScene" path="res://scenes/clown_player.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://djwnh06vheg0a" path="res://scenes/clown_player.tscn" id="3_qhqgy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qhqgy"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8alpp"]
 albedo_color = Color(0.2491, 0.36145994, 0.53, 1)
@@ -14,6 +17,24 @@ material = SubResource("StandardMaterial3D_8alpp")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_3vyb7")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = SubResource("ViewportTexture_qhqgy")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(128, 256)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport"]
+modulate = Color(0, 1, 0.95000005, 1)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+max_value = 1.0
+value = 1.0
+show_percentage = false
 
 [node name="Node3D" type="Node3D" parent="."]
 

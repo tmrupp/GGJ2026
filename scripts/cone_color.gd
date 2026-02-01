@@ -18,6 +18,5 @@ func _process(_delta: float) -> void:
 
 func set_mat():
 	if material_index >= 0 && material_index < len(material_array) and real_mat_ind != material_index:
-		print("real_mat_ind=", real_mat_ind, " after material_index=", material_index, " rid=", self)
 		real_mat_ind = material_index
 		mesh.surface_set_material(0, material_array[material_index])
