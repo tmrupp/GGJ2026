@@ -46,6 +46,7 @@ func _ready() -> void:
 	$Panel/VBoxContainer/Start.pressed.connect(toggle)
 	$Panel/VBoxContainer/Exit.pressed.connect(get_tree().quit)
 	$"../GameEndPanel/VBoxContainer/Restart".pressed.connect(restart)
+	$"../..".process_mode = Node.PROCESS_MODE_DISABLED
 	volume_slider.drag_ended.connect(volume)
 	volume_slider.value = 25
 	volume()
