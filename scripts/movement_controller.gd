@@ -14,7 +14,7 @@ var current_path: PackedVector3Array
 
 var circuit: Array
 
-@onready var world_floor = $"../NavigationRegion3D/BackgroundTent"
+@onready var world_floor = $"../NavigationRegion3D/WorldTent"
 
 var color: Color
 

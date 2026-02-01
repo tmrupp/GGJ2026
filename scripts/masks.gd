@@ -3,7 +3,7 @@ extends Node
 @onready var mask_scene = preload("res://scenes/mask.tscn")
 @onready var mask_pngs = {Color.BLUE:"res://Art/2d art/bluemask.png", Color.RED:"res://Art/2d art/redmask.png", Color.YELLOW:"res://Art/2d art/yellowmask.png"}
 
-@onready var floor = $"../NavigationRegion3D/BackgroundTent"
+@onready var floor = $"../NavigationRegion3D/WorldTent"
 
 var timer: Timer
 
@@ -14,7 +14,8 @@ func spawn_mask (color: Color):
 	mask.setup(color, load(mask_pngs[color]))
 	mask.position = v + Vector3.UP
 	add_child(mask)
-	timer.start(10)
+	timer.start(100)
+	print("current masks=", get_child_count())
 	
 	
 func _ready() -> void:
@@ -22,7 +23,7 @@ func _ready() -> void:
 	timer = Timer.new()
 	timer.timeout.connect(spawn_mask.bind(mask_pngs.keys().pick_random()))
 	add_child(timer)
-	timer.start(10)
+	timer.start(60)
 	for c in mask_pngs.keys():
 		spawn_mask(c)
 		
@@ -34,5 +35,6 @@ func remove_mask (mask):
 	var color = mask.color
 	mask.queue_free()
 	spawn_mask(color)
+	print("removed")
 	
 	
