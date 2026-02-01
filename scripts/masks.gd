@@ -17,6 +17,10 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	for c in mask_pngs.keys():
 		spawn_mask(c)
+		
+	#for i in range(1000):
+		#var c = mask_pngs.keys().pick_random()
+		#spawn_mask(c)
 
 func remove_mask (mask):
 	var color = mask.color
