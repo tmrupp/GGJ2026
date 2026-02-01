@@ -7,7 +7,8 @@ extends Node
 func spawn():
 	var t = randi_range(0, tents.size()-1)
 	var enemy = enemy_scene.instantiate()
-	enemy.position = tents[t].position + Vector3.UP
+	enemy.transform = tents[t].transform
+	enemy.position += Vector3.UP
 	
 	main.add_child(enemy)
 	

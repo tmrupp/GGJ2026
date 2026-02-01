@@ -49,6 +49,10 @@ func _ready() -> void:
 	var aabb: AABB = world_floor.global_transform * world_floor.get_aabb()
 	world_min = aabb.position
 	world_max = aabb.position + aabb.size
+
+	set_physics_process(false)
+	await get_tree().physics_frame
+	set_physics_process(true)
 	
 	get_random_walk()
 	
@@ -69,7 +73,7 @@ func get_random_walk():
 	var v : Vector3
 	var vn : Vector3
 	random_look = _random_world_loc()
-	for i in range(randi_range(1, 4)):
+	for i in range(randi_range(1, 1)):
 		if circuit.is_empty():
 			#var x = randf_range(world_min.x, world_max.x)
 			#var z = randf_range(world_min.z, world_max.z)
@@ -79,41 +83,52 @@ func get_random_walk():
 		else:
 			var t = 2*PI*randf()
 			var r = randf_range(min_range, max_range)
-			print("r=", r, " v=", v)
 			vn = v+Vector3(r*cos(t), 0, r*sin(t))
 		circuit.append(vn)
 		v = vn
+		
+	print("circuit=", circuit)
+var d = 0
+var done = false
+
+func _final_turn():
+	var org = conv(global_transform.origin)
+	while global_transform.basis.z.dot((random_look - org).normalized()) > -.99:
+		await get_tree().create_timer(1.0/60.0).timeout
+		var target_direction: Vector3 = (random_look - org).normalized()
+		var target_rotation: Basis = Basis.looking_at(target_direction, Vector3.UP)
+		basis = basis.slerp(target_rotation, turn_speed * 1/60)
 			
 func _physics_process(delta):
-	
 	var org = conv(global_transform.origin)
 	
-	if current_path.is_empty():
+	if current_path.is_empty() and not done:
 		set_movement_target(circuit[circuit_index])
 		circuit_index = (circuit_index + 1) % circuit.size()
 		return
 		
-	if circuit.size() == 1 and org.distance_to(current_path_point) <= path_point_margin:
-		look_at((random_look), Vector3.UP)
-		return
-		
-
 	movement_delta = movement_speed * delta
 
 	if org.distance_to(current_path_point) <= path_point_margin:
 		current_path_index += 1
+		d = 0
 		if current_path_index >= current_path.size():
 			current_path = []
 			current_path_index = 0
 			current_path_point = org
+			if circuit.size() == 1:
+				if not done: 	
+					_final_turn()
+				done = true
 			return
 
 	current_path_point = current_path[current_path_index]
 
-	if abs(global_transform.basis.z.dot((current_path_point - org).normalized())) < 0.99:
+	if global_transform.basis.z.dot((current_path_point - org).normalized()) > -0.99:
 		var target_direction: Vector3 = (current_path_point - org).normalized()
 		var target_rotation: Basis = Basis.looking_at(target_direction, Vector3.UP)
 		basis = basis.slerp(target_rotation, turn_speed * delta)
 	else:
 		var new_velocity: Vector3 = org.direction_to(current_path_point) * movement_delta
 		move_and_keep_height(org.move_toward(org + new_velocity, movement_delta))
+		d += delta
