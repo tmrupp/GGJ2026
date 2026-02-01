@@ -14,6 +14,7 @@ func spawn_mask (color: Color):
 	add_child(mask)
 	
 func _ready() -> void:
+	await get_tree().create_timer(2).timeout
 	for c in mask_pngs.keys():
 		spawn_mask(c)
 

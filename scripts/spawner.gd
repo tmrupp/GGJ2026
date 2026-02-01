@@ -20,16 +20,10 @@ func _ready() -> void:
 func spawn():
 	var t = randi_range(0, tents.size()-1)
 	while true:
-		print("spawn")
 		var enemy = enemy_scene.instantiate()
 		enemy.transform = tents[t].transform
 		enemy.position += Vector3.UP
 		enemy.setup(colors.pick_random(), randi_range(0, 1))
 		main.add_child.call_deferred(enemy)
 		var nt = next_timer()
-		print(nt)
 		await get_tree().create_timer(nt).timeout
-	
-func _input(_event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_SPACE):
-		spawn()

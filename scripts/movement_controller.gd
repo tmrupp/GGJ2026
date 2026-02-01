@@ -72,7 +72,7 @@ func get_random_walk():
 	var v : Vector3
 	var vn : Vector3
 	random_look = world_floor._random_world_loc()
-	for i in range(randi_range(1, 1)):
+	for i in range(randi_range(1, 4)):
 		if circuit.is_empty():
 			vn = world_floor._random_world_loc()
 			
