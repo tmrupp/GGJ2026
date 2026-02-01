@@ -6,13 +6,13 @@ var speed = 5.0
 var turn_speed = .05
 
 @onready var ability_bar = $SubViewport/ProgressBar
-var direction: Vector2
+var direction: float
 var turn: float
 @onready var cam = $CameraPivot/SpringArm3D/Camera3D
 @onready var mesh = $MeshInstance3D
 @onready var animation_player = $Node3D/ClownPlayer/AnimationPlayer
 @onready var shader = $Node3D/ClownPlayer/rig/Skeleton3D/Torus
-
+@onready var puff = $Puff
 #var mask: Color = Color.WHITE
 @onready var mask_sprite = $Node3D/ClownPlayer/mask
 var color: Color = Color.WHITE
@@ -42,11 +42,17 @@ func shield(first_time = true):
 	if first_time:
 		shielded = true
 
+#var puff_time = 0.5
+#func flash_puff ():
+	#puff.visible = true
+	#await get_tree().create_timer(puff_time).timeout
+	#puff.visible = false
+
 var dash_cooldown = 3.0
 func dash(first_time = true):
 	if first_time or ability_bar.visible:
 		return
-	
+	puff.emitting = true
 	speed = 1000
 	cooldown(dash_cooldown)
 
@@ -98,8 +104,8 @@ func mask_up (_color, texture):
 	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color_dictionary[color])
 
 func _input(_event: InputEvent) -> void:
-	direction = Input.get_vector("Left", "Right", "Forward", "Back")
-	turn = Input.get_axis("CounterClockwise", "Clockwise")
+	direction = Input.get_axis("Forward", "Back")
+	turn = -Input.get_axis("Left", "Right")
 
 	if _event.is_action_pressed("Ability"):
 		ability[color].call(false)
@@ -108,7 +114,7 @@ func _physics_process(_delta: float) -> void:
 	if shrouded:
 		velocity = Vector3.ZERO
 		return
-	velocity = Vector3(direction.x, 0.0, direction.y).rotated(Vector3.UP, rotation.y) * speed
+	velocity = Vector3(0.0, 0.0, direction).rotated(Vector3.UP, rotation.y) * speed
 	
 	speed = default_speed * (white_speed_factor if color == Color.WHITE else 1)
 	rotate(Vector3(0, 1, 0), turn * turn_speed)

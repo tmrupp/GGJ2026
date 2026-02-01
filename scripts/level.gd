@@ -8,7 +8,6 @@ func _ready() -> void:
 	caught.connect(_on_player_caught)
 
 func _on_player_caught():
-	
 	if player.shrouded:
 		return
 		
@@ -16,6 +15,8 @@ func _on_player_caught():
 		player.shielded = false
 		player.mask_up(Color.WHITE, null)
 		print("player shielded, not caught")
+		player.puff.emitting = true
 		
 	else:
 		print("we caught the player")
+		$UI/Menu.game_end()
