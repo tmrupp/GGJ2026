@@ -86,6 +86,7 @@ func _ready() -> void:
 	ability_bar.visible = false
 
 func mask_up (_color, texture):
+	print("masking up")
 	color = _color
 	ability[color].call()
 	mask_sprite.texture = texture
