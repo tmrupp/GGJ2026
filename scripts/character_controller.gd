@@ -10,8 +10,9 @@ var turn: float
 @onready var animation_player = $Node3D/ClownPlayer/AnimationPlayer
 @onready var shader = $Node3D/ClownPlayer/rig/Skeleton3D/Torus
 
-var mask: Color = Color.WHITE
+#var mask: Color = Color.WHITE
 @onready var mask_sprite = $Node3D/ClownPlayer/mask
+var color: Color = Color.WHITE
 
 const color_dictionary = {
 	Color.RED : Color.RED,
@@ -23,8 +24,8 @@ func _ready() -> void:
 	animation_player.set_blend_time("walk", "idle", 0.25)
 	animation_player.set_blend_time("idle", "walk", 0.2)
 
-func mask_up (color, texture):
-	mask = color
+func mask_up (_color, texture):
+	color = _color
 	mask_sprite.texture = texture
 	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color_dictionary[color])
 

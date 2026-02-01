@@ -4,12 +4,14 @@ extends Node
 @onready var enemy_scene = preload("res://scenes/enemy.tscn")
 @onready var main = $"../.."
 
+var colors = [Color.BLUE, Color.RED, Color.YELLOW]
+
 func spawn():
 	var t = randi_range(0, tents.size()-1)
 	var enemy = enemy_scene.instantiate()
 	enemy.transform = tents[t].transform
 	enemy.position += Vector3.UP
-	
+	enemy.setup(colors.pick_random())
 	main.add_child(enemy)
 	
 func _input(_event: InputEvent) -> void:

@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://0dq687mmhxrd"]
+[gd_scene load_steps=15 format=3 uid="uid://0dq687mmhxrd"]
 
 [ext_resource type="Script" uid="uid://dueqnb44i8dd" path="res://scripts/level.gd" id="1_mx8sn"]
-[ext_resource type="PackedScene" uid="uid://dth3mqegiaqm6" path="res://scenes/mask.tscn" id="2_2r41h"]
 [ext_resource type="Script" uid="uid://dtabuf1vhycrq" path="res://scripts/floor.gd" id="2_klq6b"]
 [ext_resource type="PackedScene" uid="uid://jpq5aydc2yf5" path="res://scenes/player.tscn" id="2_mx8sn"]
 [ext_resource type="Script" uid="uid://c0x7ftwkbu4rh" path="res://scripts/spawner.gd" id="3_b121j"]
@@ -120,6 +119,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Masks" type="Node" parent="."]
 script = ExtResource("5_2r41h")
-
-[node name="Mask" parent="Masks" instance=ExtResource("2_2r41h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.167808, 1.1031289, 0)

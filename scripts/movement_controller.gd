@@ -16,6 +16,19 @@ var circuit: Array
 
 @onready var world_floor = $"../NavigationRegion3D/Floor"
 
+var color: Color
+var color_to_index = {
+	Color.RED: 0,
+	Color.BLUE: 1,
+	Color.YELLOW: 2
+}
+
+func setup (_color):
+	$Node3D/Clown1/VisionCone/ConeMesh.material_index = color_to_index[_color]
+	$Node3D/Clown2/VisionCone/ConeMesh.material_index = color_to_index[_color]
+	#print("setup color=", _color)
+	#$Node3D/Clown2/VisionCone/ConeMesh.set_mat()
+	color = _color
 
 func set_movement_target(target_position: Vector3):
 	await get_tree().physics_frame
