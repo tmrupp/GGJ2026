@@ -17,19 +17,15 @@ var circuit: Array
 @onready var world_floor = $"../NavigationRegion3D/BackgroundTent"
 
 var color: Color
-var color_to_index = {
-	Color.RED: 0,
-	Color.BLUE: 1,
-	Color.YELLOW: 2
-}
 
 @onready var clown_controller = $Node3D
 
 func setup (_color, clown_model_index):
-	$Node3D/Clown1/VisionCone/ConeMesh.material_index = color_to_index[_color]
-	$Node3D/Clown2/VisionCone/ConeMesh.material_index = color_to_index[_color]
-	$Node3D.clown_model_index = clown_model_index
-	$Node3D.set_model()
+	if clown_controller == null:
+		clown_controller = $Node3D
+	clown_controller.set_color(_color)
+	clown_controller.clown_model_index = clown_model_index
+	clown_controller.set_model()
 	color = _color
 
 func set_movement_target(target_position: Vector3):
