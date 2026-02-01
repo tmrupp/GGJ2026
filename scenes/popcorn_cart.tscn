@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwcbovx0cgwsx"]
+
+[ext_resource type="PackedScene" uid="uid://dfodpqw0gjpvf" path="res://Art/PopcornCart.glb" id="1_5fs4h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5fs4h"]
+size = Vector3(1.6955566, 1.762207, 0.70355225)
+
+[node name="PopcornCart" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="PopcornCart" parent="Node3D" instance=ExtResource("1_5fs4h")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025634766, 0.8881616, 0.0025939941)
+shape = SubResource("BoxShape3D_5fs4h")
