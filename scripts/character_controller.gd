@@ -92,11 +92,14 @@ func _ready() -> void:
 	animation_player.set_blend_time("idle", "walk", 0.2)
 	ability_bar.visible = false
 	shader.get_surface_override_material(0).set_shader_parameter("color_focus", Color.WHITE)
-	
+
+
+
 @onready var num_lab = $"../UI/Panel/HBoxContainer/num"
 var nmasks = 0
 func mask_up (_color, texture):
 	nmasks += 1
+	$"../Audio/Mask".play()
 	num_lab.text = str(nmasks)
 	color = _color
 	shielded = false
