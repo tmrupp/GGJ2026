@@ -56,21 +56,22 @@ func dash(first_time = true):
 	speed = 1000
 	cooldown(dash_cooldown)
 
-var shroud_time = 2.0
-var shroud_cooldown = 6.0
+var shroud_time = 4.0
+var shroud_cooldown = 8.0
 var shrouded = false
 func shroud(first_time = true):
-	if first_time or ability_bar.visible:
-		return
+	if not shrouded:
+		if first_time or ability_bar.visible:
+			return
+			
+		cooldown(shroud_cooldown)
 		
-	cooldown(shroud_cooldown)
-	
-	var t = 0
-	shrouded = true
-	shader.get_surface_override_material(0).set_shader_parameter("color_focus", Color.BLACK)
-	while t < shroud_time:
-		await get_tree().create_timer(cooldown_step).timeout
-		t += cooldown_step
+		var t = 0
+		shrouded = true
+		shader.get_surface_override_material(0).set_shader_parameter("color_focus", Color.BLACK)
+		while t < shroud_time:
+			await get_tree().create_timer(cooldown_step).timeout
+			t += cooldown_step
 		
 	shrouded = false
 	shader.get_surface_override_material(0).set_shader_parameter("color_focus", color_dictionary[color])
