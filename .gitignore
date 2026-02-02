@@ -7,3 +7,4 @@ crash_handler.log
 .vscode/
 .idea/
 .godot/
+/Builds/
