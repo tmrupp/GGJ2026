@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://0dq687mmhxrd"]
+[gd_scene load_steps=34 format=3 uid="uid://0dq687mmhxrd"]
 
 [ext_resource type="Script" uid="uid://dueqnb44i8dd" path="res://scripts/level.gd" id="1_mx8sn"]
 [ext_resource type="PackedScene" path="res://scenes/WorldTent.tscn" id="2_82cfe"]
@@ -704,6 +704,29 @@ transform = Transform3D(0.8986257, 0, 0.43871623, 0, 1, 0, -0.43871623, 0, 0.898
 
 [node name="Crate11" parent="NavigationRegion3D/Crates" instance=ExtResource("16_cmcjb")]
 transform = Transform3D(0.8986257, 0, 0.43871623, 0, 1, 0, -0.43871623, 0, 0.8986257, -25.766323, 9.536743e-07, 3.2723155)
+
+[node name="corn" type="Node" parent="NavigationRegion3D"]
+
+[node name="CornDogCart" parent="NavigationRegion3D/corn" instance=ExtResource("18_7agi7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3265686, -9.536743e-07, 13.646556)
+
+[node name="CornDogCart2" parent="NavigationRegion3D/corn" instance=ExtResource("18_7agi7")]
+transform = Transform3D(-0.44294602, 0, 0.8965483, 0, 1, 0, -0.8965483, 0, -0.44294602, -9.12011, 0, -0.10722351)
+
+[node name="CornDogCart3" parent="NavigationRegion3D/corn" instance=ExtResource("18_7agi7")]
+transform = Transform3D(0.6714102, 0, 0.7410859, 0, 1, 0, -0.7410859, 0, 0.6714102, -10.113953, -9.536743e-07, -31.45203)
+
+[node name="CornDogCart4" parent="NavigationRegion3D/corn" instance=ExtResource("18_7agi7")]
+transform = Transform3D(0.95875525, 0, -0.28423288, 0, 1, 0, 0.28423288, 0, 0.95875525, -22.318916, -9.536743e-07, 9.249168)
+
+[node name="CornDogCart5" parent="NavigationRegion3D/corn" instance=ExtResource("18_7agi7")]
+transform = Transform3D(0.95875525, 0, -0.28423288, 0, 1, 0, 0.28423288, 0, 0.95875525, 4.5573997, -9.536743e-07, 42.25325)
+
+[node name="CornDogCart6" parent="NavigationRegion3D/corn" instance=ExtResource("18_7agi7")]
+transform = Transform3D(-0.105483085, 0, -0.99442124, 0, 1, 0, 0.99442124, 0, -0.105483085, 0.2852459, -9.536743e-07, 18.729462)
+
+[node name="CornDogCart7" parent="NavigationRegion3D/corn" instance=ExtResource("18_7agi7")]
+transform = Transform3D(-0.105483085, 0, -0.99442124, 0, 1, 0, 0.99442124, 0, -0.105483085, 35.24337, -9.536743e-07, -7.5134354)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w8frs")
